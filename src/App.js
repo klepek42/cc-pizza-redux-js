@@ -1,23 +1,37 @@
-import { πuseSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import "./App.css";
+import { useEffect } from "react";
 
 function App() {
-  const pizza = [
-    { name: "Pizza Salami", price: 5.0 },
-    { name: "Pizza Hawaii", price: 8.0 },
-    { name: "Pizza Tonno", price: 6.5 },
-  ];
-  // const pizza = useSelector((state) => state.pizza);
+  const pizza = useSelector((state) => state.pizza);
+
+  const fetchPizzaData = async () => {
+    try {
+      const response = await fetch(process.env.FIREBASE_DB_URL);
+
+      if (!response.ok) {
+        throw new Error("Fehler beim Laden");
+      }
+
+      const data = await response.json();
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchPizzaData();
+  }, [fetchPizzaData]);
 
   return (
     <div className="App">
       <div>
         {pizza.map((item) => (
-          <>
-            <div>{item.name}</div>
-            <div>{item.price}€</div>
-          </>
+          <div key={item.name}>
+            <p>{item.name}</p>
+            <span>{item.price}€</span>
+          </div>
         ))}
       </div>
     </div>
