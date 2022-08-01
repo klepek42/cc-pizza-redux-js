@@ -1,12 +1,13 @@
 import useFetchPizzaData from "./hooks/useFetchPizzaData";
-import "./App.css";
+import styles from "./App.module.css";
 
 function App() {
   const pizza = useFetchPizzaData();
 
   return (
-    <div className="App">
-      <div>
+    <div className={styles["App"]}>
+      <div className={styles["speisekarte-text"]}>
+        <h1>Speisekarte</h1>
         {pizza.map((item) => (
           <div key={item.name}>
             <p>
