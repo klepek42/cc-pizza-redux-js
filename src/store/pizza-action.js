@@ -3,9 +3,7 @@ import { pizzaActions } from "./pizza-slice";
 export const fetchPizzaData = () => {
   return async (dispatch) => {
     const fetchData = async () => {
-      const response = await fetch(
-        "https://cc-pizza-redux-default-rtdb.europe-west1.firebasedatabase.app/pizza.json"
-      );
+      const response = await fetch(process.env.REACT_APP_FIREBASE_DB_URL);
 
       if (!response.ok) {
         throw new Error("Fehler beim Laden der Daten!");

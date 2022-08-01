@@ -6,7 +6,6 @@ import "./App.css";
 
 function App() {
   const dispatch = useDispatch();
-
   const pizza = useSelector((state) => state.pizza);
 
   useEffect(() => {
