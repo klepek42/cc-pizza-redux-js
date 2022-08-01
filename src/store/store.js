@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import pizzaReducer from "./pizzaReducer";
+import pizzaSlice from "./pizza-slice";
 
-export const store = configureStore({
-	reducer: {
-		pizza: pizzaReducer,
-	},
+const store = configureStore({
+  reducer: pizzaSlice.reducer,
 });
+
+export default store;
