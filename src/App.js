@@ -1,20 +1,13 @@
-import useFetchPizzaData from "./hooks/useFetchPizzaData";
-import "./App.css";
+import NavigationBar from "./components/NavigationBar";
+import Speisekarte from "./components/Speisekarte";
+
+import styles from "./App.module.css";
 
 function App() {
-  const pizza = useFetchPizzaData();
-
   return (
-    <div className="App">
-      <div>
-        {pizza.map((item) => (
-          <div key={item.name}>
-            <p>
-              {item.name} - {item.price}€
-            </p>
-          </div>
-        ))}
-      </div>
+    <div className={styles["app"]}>
+      <NavigationBar />
+      <Speisekarte />
     </div>
   );
 }
