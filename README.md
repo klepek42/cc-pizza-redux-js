@@ -3,3 +3,6 @@ Simple web app fetching data from a Firebase realtime database, loading it into 
 
 ## Showcase
 ![](src/assets/showcase_screenshot.png)
+
+## Live Demo
+https://cc-pizza-redux.web.app/
