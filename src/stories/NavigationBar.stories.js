@@ -1,7 +1,7 @@
 import NavigationBar from "../components/NavigationBar";
 
 export default {
-  title: "Navigation",
+  title: "Components/Navigation",
   component: NavigationBar,
 };
 
